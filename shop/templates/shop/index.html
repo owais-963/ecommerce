@@ -1,0 +1,33 @@
+{% include 'shop/header.html' %}
+{% load static %}
+    <div class="banner">
+        <img src="{% static 'shop/images/banner.jpg' %}" alt="Supermarket Banner">
+    </div>
+
+    <div class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-list">
+            <!-- Repeat for each featured product -->
+            <div class="product">
+                <img src="{% static 'shop/images/product1.jpg' %}" alt="Product">
+                <h3>Product Name</h3>
+                <p>Price: $10.99</p>
+                <a href="#">View Details</a>
+            </div>
+            <!-- End of repeat -->
+        </div>
+    </div>
+
+    <div class="deals">
+        <h2>Hot Deals</h2>
+        <div class="deal-list">
+            <!-- Repeat for each deal -->
+            <div class="deal">
+                <img src="{% static 'shop/images/deal1.jpg' %}" alt="Deal">
+                <h3>Deal Name</h3>
+                <p>Discount: 20%</p>
+                <a href="#">Get Deal</a>
+            </div>
+            <!-- End of repeat -->
+        </div>
+    </div>

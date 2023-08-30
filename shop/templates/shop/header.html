@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>header</title>
+    <link rel="stylesheet" href="{% static 'shop/css/header.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="{% url 'index' %}">Your Logo</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Contact</a></li>
+
+                <!-- Add login link or profile dropdown based on authentication -->
+                {% if userLogged %}
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Profile</a>
+                        <div class="dropdown-content">
+                            <a href="#">Profile</a>
+                            <a href="#">Orders</a>
+                            <a href="{% url 'logOut' %}">Logout</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+</body>
+</html>

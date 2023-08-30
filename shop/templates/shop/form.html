@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+     <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'shop/css/form.css' %}">
+</head>
+<body>
+{{msg}}
+    <h2>Signup</h2>
+    <form method="POST">
+    {% csrf_token %}
+    <label for="{{ signup_form.Fname.id_for_label }}">First Name:</label>
+    {{ signup_form.Fname }}<br>
+    <label for="{{ signup_form.Lname.id_for_label }}">Last Name:</label>
+    {{ signup_form.Lname }}<br>
+    <label for="{{ signup_form.email.id_for_label }}">Email:</label>
+    {{ signup_form.email }}<br>
+    <label for="{{ signup_form.NICno.id_for_label }}">NIC#:</label>
+    {{ signup_form.NICno }}<br>
+    <label for="{{ signup_form.phoneNo.id_for_label }}">Phone#:</label>
+    {{ signup_form.phoneNo }}<br>
+    <label for="{{ signup_form.dob.id_for_label }}">Date of Birth:</label>
+    {{ signup_form.dob }}<br>
+    <!-- ... Repeat for other customer fields ... -->
+    <label for="{{ signup_form.password.id_for_label }}">Password:</label>
+    {{ signup_form.password }}<br>
+
+     {% if messages %}
+        {% for msg in messages %}
+
+             <p style="color:red">
+                 {{msg}}
+             </p>
+
+        {% endfor %}
+    {% endif %}
+    <!-- ... Repeat for other address fields ... -->
+
+    <button type="submit">Sign Up</button>
+</form>
+
+
+
+
+</body>
+</html>
