@@ -1,13 +1,6 @@
 {% load static %}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Signup</title>
-     <title>Signup</title>
-    <link rel="stylesheet" href="{% static 'shop/css/form.css' %}">
-</head>
-<body>
+{% include 'shop/header.html' %}
+{% load static %}
 {{msg}}
     <h2>Signup</h2>
     <form method="POST">
@@ -39,11 +32,13 @@
     {% endif %}
     <!-- ... Repeat for other address fields ... -->
 
-    <button type="submit">Sign Up</button>
+     <div style="display: flex; justify-content: space-between">
+        <button type="submit">SignUp</button>
+        <a href="{% url 'login' %}" style="color:#3298db; text-decoration:none">
+            Already have an account?
+        </a>
+    </div>
 </form>
 
-
-
-
-</body>
-</html>
+ 'shop/footer.html' %}
+{% load static %}

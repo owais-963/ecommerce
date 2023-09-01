@@ -4,26 +4,30 @@
 <head>
     <title>header</title>
     <link rel="stylesheet" href="{% static 'shop/css/header.css' %}">
+     <link rel="stylesheet" href="{% static 'shop/css/form.css' %}">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <a href="{% url 'index' %}">Your Logo</a>
+                <a href="{% url 'index' %}">
+                    <img class="logo-img" src="{% static 'shop/images/logo.png' %}"
+
+                ></a>
             </div>
             <ul class="nav-links">
                 <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="{% url 'categories'%}">Categories</a></li>
+                <li><a href="{% url 'cart'%}">Cart</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
 
                 <!-- Add login link or profile dropdown based on authentication -->
                 {% if userLogged %}
                     <li class="dropdown">
                         <a href="#" class="dropbtn">Profile</a>
                         <div class="dropdown-content">
-                            <a href="#">Profile</a>
-                            <a href="#">Orders</a>
+                            <a href="{% url 'profile'%}">Profile</a>
+                            <a href="{% url 'orders'%}">Orders</a>
                             <a href="{% url 'logOut' %}">Logout</a>
                         </div>
                     </li>

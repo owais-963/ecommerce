@@ -76,3 +76,31 @@ def login(request):
 def logOut(request):
     del request.session['user_logged']
     return redirect('login')
+
+
+def profile(request):
+    return render(request, 'shop/profile.html')
+
+
+def orders(request):
+    return render(request, 'shop/orders.html')
+
+
+def cart(request):
+    return render(request, 'shop/cart.html')
+
+
+def categories(request):
+    return render(request, 'shop/categories.html')
+
+
+def explore(request):
+    return render(request, 'shop/explore.html')
+
+
+def contact(request):
+    return render(request, 'shop/contact.html')
+
+
+def checkout(request):
+    return render(request, 'shop/checkout.html')
