@@ -22,3 +22,41 @@ class Address(models.Model):
     city = models.CharField(max_length=50)
     postal_code = models.IntegerField()
     street_add = models.CharField(max_length=200)
+
+
+class Products(models.Model):
+    pID = models.CharField(max_length=20, primary_key=True, unique=True)
+    name = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
+    quantity = models.IntegerField()
+    buying = models.IntegerField()
+    # sell = models.IntegerField()
+    discp = models.TextField(null=True)
+    manufacturer = models.CharField(max_length=200)
+    date = models.DateField(default=datetime.datetime.now())
+
+
+class Orders(models.Model):
+    orderID = models.CharField(max_length=20, primary_key=True, unique=True)
+    customerID = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date = models.DateField(default=datetime.datetime.now())
+
+
+class OrderList(models.Model):
+    orderID = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    pID = models.ForeignKey(Products, on_delete=models.CASCADE)
+
+
+class CancelOrder(models.Model):
+    orderID = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    clsResn = models.TextField(null=False)
+
+
+class Sell(models.Model):
+    orderID = models.ForeignKey(Orders, on_delete=models.CASCADE)
+
+# class LastPurchase(models.Model):
+#     pID = models.ForeignKey(Products, on_delete=models.CASCADE)
+#     date = models.DateField(default=datetime.datetime.now())
+#     buying = models.IntegerField()
+#     quantity = models.IntegerField()
