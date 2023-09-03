@@ -54,6 +54,8 @@ class CancelOrder(models.Model):
 
 class Sell(models.Model):
     orderID = models.ForeignKey(Orders, on_delete=models.CASCADE)
+    amount = models.IntegerField()
+    date = models.DateField(default=datetime.date.today())
 
 # class LastPurchase(models.Model):
 #     pID = models.ForeignKey(Products, on_delete=models.CASCADE)
