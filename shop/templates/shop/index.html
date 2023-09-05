@@ -8,12 +8,14 @@
         <h2>Featured Products</h2>
         <div class="product-list">
             <!-- Repeat for each featured product -->
+            {% for p in data %}
             <div class="product">
-                <img src="{% static 'shop/images/product1.jpg' %}" alt="Product">
-                <h3>Product Name</h3>
-                <p>Price: $10.99</p>
-                <a href="#">View Details</a>
+                <img style="width:250px; height:250px;" src="{{ p.p_img.url }}" alt="Product">
+                <h3>{{p.name}}</h3>
+                <p>{{p.sell}}</p>
+                <a href="{% url 'explore' %}">View Details</a>
             </div>
+            {% endfor %}
             <!-- End of repeat -->
         </div>
     </div>

@@ -29,11 +29,11 @@ class Address(models.Model):
 class Products(models.Model):
     pID = models.CharField(max_length=20, primary_key=True, unique=True)
     name = models.CharField(max_length=100)
-    p_img = models.ImageField()
+    p_img = models.ImageField(upload_to='images/')
     category = models.CharField(max_length=100)
     quantity = models.IntegerField()
     buying = models.IntegerField()
-    # sell = models.IntegerField()
+    sell = models.IntegerField()
     discp = models.TextField(null=True)
     manufacturer = models.CharField(max_length=200)
     date = models.DateField(default=datetime.datetime.now())

@@ -21,11 +21,13 @@ def index(request):
     else:
         userLogged = False
 
-    c = Customer.objects.order_by('date_of_join').all()
-    info = c.all()[:]
-    add = Address.objects.all()[:]
+    p = Products.objects.all()
+
+    # c = Customer.objects.order_by('date_of_join').all()
+    # info = c.all()[:]
+    # add = Address.objects.all()[:]
     context = {
-        'info': info, 'addr': add, 'userLogged': userLogged,
+        'data': p, 'userLogged': userLogged, 'title': 'Shop'
     }
     return render(request, 'shop/index.html', context)
 
@@ -49,7 +51,7 @@ def signup(request):
                           {'signup_form': signup_form})
     else:
         signup_form = SignupForm()
-        return render(request, 'shop/form.html', {'signup_form': signup_form})
+        return render(request, 'shop/form.html', {'signup_form': signup_form, 'title': 'SignUp'})
 
 
 def login(request):
@@ -69,7 +71,7 @@ def login(request):
             messages.error(request, 'Invalid user')
             return redirect('login')
     else:
-        return render(request, 'shop/login.html')
+        return render(request, 'shop/login.html', {'title': 'logIn'})
     # return HttpResponse("<h1> Welcome to login </h1>")
 
 
@@ -79,28 +81,28 @@ def logOut(request):
 
 
 def profile(request):
-    return render(request, 'shop/profile.html')
+    return render(request, 'shop/profile.html',{'title': 'Profile'})
 
 
 def orders(request):
-    return render(request, 'shop/orders.html')
+    return render(request, 'shop/orders.html', {'title': 'Orders'})
 
 
 def cart(request):
-    return render(request, 'shop/cart.html')
+    return render(request, 'shop/cart.html', {'title': 'Cart'})
 
 
 def categories(request):
-    return render(request, 'shop/categories.html')
+    return render(request, 'shop/categories.html', {'title': 'Categories'})
 
 
 def explore(request):
-    return render(request, 'shop/explore.html')
+    return render(request, 'shop/explore.html', {'title': 'Explore'})
 
 
 def contact(request):
-    return render(request, 'shop/contact.html')
+    return render(request, 'shop/contact.html', {'title': 'Contact'})
 
 
 def checkout(request):
-    return render(request, 'shop/checkout.html')
+    return render(request, 'shop/checkout.html', {'title': 'Check Out'})
