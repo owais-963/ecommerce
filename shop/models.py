@@ -2,6 +2,8 @@ import datetime
 
 from django.db import models
 
+from django.utils import timezone
+
 
 # Create your models here.
 class Customer(models.Model):
@@ -27,6 +29,7 @@ class Address(models.Model):
 class Products(models.Model):
     pID = models.CharField(max_length=20, primary_key=True, unique=True)
     name = models.CharField(max_length=100)
+    p_img = models.ImageField()
     category = models.CharField(max_length=100)
     quantity = models.IntegerField()
     buying = models.IntegerField()
